@@ -36,9 +36,9 @@ function createMaterial() {
 function createCube() {
     // fourth: Create a visibile object
     // create a geometry object
-    // const geometry = new BoxGeometry(2, 2, 2)
+    const geometry = new BoxGeometry(2, 2, 2)
     // const geometry = new CircleGeometry(5, 102)
-    const geometry = new CapsuleGeometry( 1, 1, 4, 8 ); 
+    // const geometry = new CapsuleGeometry( 1, 1, 4, 8 ); 
 
     const material = createMaterial()
 

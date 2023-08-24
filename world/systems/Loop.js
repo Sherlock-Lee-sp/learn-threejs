@@ -8,6 +8,7 @@ class Loop {
 
     start() {
         this.renderer.setAnimationLoop(() => {
+            // console.log('1111')
             this.tick()
 
             this.renderer.render(this.scene, this.camera);
