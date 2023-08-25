@@ -9,8 +9,12 @@ function createControl(camera, canvas) {
     // 必须要调用update方法
     controls.tick = () => controls.update()
 
-    controls.minDistance = 10;
-    controls.maxDistance = 20;
+    controls.minDistance = -Infinity;
+    controls.maxDistance = Infinity;
+
+    // 自动旋转
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1;
 
     return controls
 }

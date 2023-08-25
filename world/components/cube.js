@@ -20,7 +20,9 @@ function createMaterial() {
       img,
     );
 
-    // const material = new MeshBasicMaterial()
+    // const material = new MeshBasicMaterial({
+    //   map: texture,
+    // })
     const material = new MeshStandardMaterial({
       // color: 'green',
       map: texture,
@@ -56,12 +58,16 @@ function createCube() {
       cube.rotation.y += 0.01;
     };
 
+    // create a Mesh containing the geometry and material
+    const cube2 = new Mesh(geometry, material)
+    cube2.position.set(10, 0, 0)
+
     // const geometry2 = new CircleGeometry(5, 102)
     // const material2 = new MeshStandardMaterial({color: 'blue'})
     // const cube2 = new Mesh(geometry2, material2)
     // cube.add(cube2)
 
-    return cube
+    return [cube, cube2]
 }
 
 export {createCube}

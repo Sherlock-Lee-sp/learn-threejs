@@ -6,6 +6,7 @@ import { Resizer } from "./systems/Resizer";
 import { createLights } from "./components/light";
 import { Loop } from "./systems/Loop";
 import { createControl } from "./systems/control";
+import { creatMeshGroup } from "./components/meshGroup";
 
 let camera;
 let renderer;
@@ -22,15 +23,18 @@ class World {
         const controls = createControl(camera, renderer.domElement)
         // controls.target.set(1,2,3);
 
-        const cube = createCube()
-        const light = createLights()
+        const [cube, cube2] = createCube()
+        const [light, ambientLight] = createLights()
+        const group = creatMeshGroup()
 
         // loop.updateArr.push(cube)
         // loop.updateArr.push(camera)
         // loop.updateArr.push(light)
-        loop.updateArr.push(controls)
+        // loop.updateArr.push(controls)
+        loop.updateArr.push(group)
 
-        scene.add(cube, light)
+        // scene.add(ambientLight, light, cube, cube2)
+        scene.add(ambientLight, light, group)
 
         const resizer = new Resizer(app, camera, renderer);
         // resizer.onResize = () => {
