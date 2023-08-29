@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import { createCemera } from "./components/camera";
 import { createCube } from "./components/cube";
 import { createScene } from "./components/Scene";
@@ -7,6 +8,10 @@ import { createLights } from "./components/light";
 import { Loop } from "./systems/Loop";
 import { createControl } from "./systems/control";
 import { creatMeshGroup } from "./components/meshGroup";
+import {
+    createAxesHelper,
+    createGridHelper
+} from './components/helper'
 
 let camera;
 let renderer;
@@ -33,8 +38,11 @@ class World {
         // loop.updateArr.push(controls)
         loop.updateArr.push(group)
 
+        const axesHelper = createAxesHelper()
+        const gridHelper = createGridHelper()
+
         // scene.add(ambientLight, light, cube, cube2)
-        scene.add(ambientLight, light, group)
+        scene.add(ambientLight, light, group, axesHelper, gridHelper)
 
         const resizer = new Resizer(app, camera, renderer);
         // resizer.onResize = () => {
